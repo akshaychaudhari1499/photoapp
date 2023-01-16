@@ -8,7 +8,7 @@ import Contact from './Components/Contact';
 import About from './Components/About';
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
     
     <NavbarComp></NavbarComp>
 
