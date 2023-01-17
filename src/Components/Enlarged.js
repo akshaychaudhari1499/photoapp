@@ -1,10 +1,10 @@
 import { React, useState,useEffect } from 'react'
-import { Button, Card, Container } from 'react-bootstrap'
+import { Button, Card, Container,Spinner } from 'react-bootstrap'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 function Enlarged() {
-    const [EnlargedPhoto,setEnlarged] = useState('');
+    const [EnlargedPhoto,setEnlarged] = useState({});
     const {photoid}=useParams({});
     useEffect(() => {
         axios.get(`https://picsum.photos/id/${photoid}/info`).then((res) => { setEnlarged(res.data.download_url) }).catch((err) => { console.log(err) });
@@ -13,6 +13,7 @@ function Enlarged() {
     }, [])
     return (
         <>
+        {Object.keys(EnlargedPhoto).length ?
             <Container>
                 <img src={EnlargedPhoto} style={{
                     width: "100%",
@@ -20,7 +21,8 @@ function Enlarged() {
                 }}   ></img>
 
 
-            </Container>
+            </Container>:
+            <Spinner animation="border" style={{display:'block' , margin:"400px auto"}}/>}
         </>
 
     )

@@ -30,13 +30,13 @@ export default function CardComp() {
                     <Card.Img variant="top" style={{height:"200px"}}src={photo.download_url} />
                     <Card.Body>
                         <Card.Title>{photo.author}</Card.Title>
-                        <Button as={Link} to={photo.url} className='btn btn-dark m-3' >View Details</Button>
+                        <a href={photo.url} className='btn btn-dark m-3' >View Details</a>
                       
                        <Button as={Link} to={`/Enlarged/${photo.id}`}  className='btn btn-dark '>Enlarge</Button>
                     </Card.Body>
                 </Card></Col>
 
-                ))):<Spinner animation="grow" style={{margin:"400px auto"}}/>}
+                ))):<Spinner animation="border" style={{margin:"400px auto"}}/>}
 
             </Row>
             
